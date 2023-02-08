@@ -1,13 +1,24 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GiveMyCertificate</title>
+    <title>Kartexa</title>
+    <link href="{% static 'img/transparent.png' %}" rel="icon">
+    <link href="{% static 'img/transparent.png' %}" rel="apple-touch-icon">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
-    <h1> Welcome to Dashboard </h1>
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-md">
+          <a class="navbar-brand" href="#"><img src="{% static 'img/transparent.png' %}" width="200"></a>
+        </div>
+      </nav>
+
+      <div class="container">
+    <h1> Welcome to Dashboard {{user.username}}</h1>
+      </div>
 </body>
 </html>

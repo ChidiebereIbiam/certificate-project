@@ -5,12 +5,13 @@ from django.contrib.auth.models import Group
 
 def profile(sender, instance, created,**kwargs):
      if created:
-        group = Group.objects.get(name='user')
+        group = Group.objects.get(name='users')
         instance.groups.add(group)
         
-        Minister.objects.create(
+        Profile.objects.create(
             user=instance,
             name=instance.username,
         )
 
 post_save.connect(profile, sender=User)
+

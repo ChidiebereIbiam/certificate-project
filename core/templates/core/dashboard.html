@@ -1,214 +1,76 @@
-<!DOCTYPE html>
+{% extends 'core/base.html' %}
 {% load static %}
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kartexa</title>
 
-    <!-- Favicons -->
-    <link href="{% static 'img/logo.png' %}" rel="icon" />
-    <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon" />
+{% block title %}
+Dashboard - Kartexa
+{% endblock title %}
 
-    <!-- Bootstrap CSS Files -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-    <link
-      rel="stylesheet"
-      href="{% static 'bootstrap-icons/bootstrap-icons.css' %}"
-    />
-    <link rel="stylesheet" href="{% static 'boxicons/css/boxicons.css' %}" />
+{% block content %}
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav>
+  </div>
+  <!-- End Page Title -->
 
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  </head>
-  <body>
-    <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
-      <div class="d-flex align-items-center justify-content-between">
-        <a href="{% url 'dashboard' %}" class="logo d-flex align-items-center">
-          <img src="{% static 'img/logo.png' %}" alt="" />
-          <span class="d-none d-lg-block">Kartexa</span>
-        </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
-      </div>
-
-      <nav class="header-nav ms-auto">
-        <ul class="d-flex align-items-center">
-          <li class="nav-item dropdown pe-3">
-            <a
-              class="nav-link nav-profile d-flex align-items-center pe-0"
-              href="#"
-              data-bs-toggle="dropdown"
-            >
-              <img
-                src="{% static 'img/logo.png' %}"
-                alt="Profile"
-                class="rounded-circle"
-              />
-              <span class="d-none d-md-block dropdown-toggle ps-2"
-                >{{user.username}}</span
-              >
-            </a>
-
-            <ul
-              class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile"
-            >
-              <li class="dropdown-header">
-                <h6>Chidiebere Ibiam</h6>
-                <span>Full Stack Intern</span>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="">
-                  <i class="bi bi-person"></i>
-                  <span>My Profile</span>
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <i class="bi bi-box-arrow-right"></i>
-                  <span>Sign Out</span>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
-      <ul class="sidebar-nav" id="sidebar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'dashboard' %}">
-            <i class="bi bi-grid"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <!-- End Dashboard Nav -->
-
-        <li class="nav-item">
-          <a
-            class="nav-link collapsed"
-            data-bs-target="#components-nav"
-            data-bs-toggle="collapse"
-            href="#"
-          >
-            <i class="bi bi-menu-button-wide"></i><span>Certificate</span
-            ><i class="bi bi-chevron-down ms-auto"></i>
-          </a>
-          <ul
-            id="components-nav"
-            class="nav-content collapse"
-            data-bs-parent="#sidebar-nav"
-          >
-            <li>
-              <a href="components-alerts.html">
-                <i class="bi bi-circle"></i><span>Generate Certificate</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <i class="bi bi-calendar-event"></i
-                ><span>View Certificates</span>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <i class="bi bi-box-arrow-in-right"></i
-                ><span>Verify Certificate</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <!-- End Certificate Nav -->
-
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="">
-            <i class="bi bi-person"></i>
-            <span>Profile</span>
-          </a>
-        </li>
-      </ul>
-    </aside>
-    <!-- End Sidebar-->
-
-    <main id="main" class="main">
-      <div class="pagetitle">
-        <h1>Dashboard</h1>
-        <nav>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard</li>
-          </ol>
-        </nav>
-      </div>
-      <!-- End Page Title -->
-
-      <section class="section dashboard">
+  <section class="section dashboard">
+    <div class="row">
+      <!-- Left side columns -->
+      <div class="col-lg-12">
         <div class="row">
-          <!-- Left side columns -->
-          <div class="col-lg-12">
-            <div class="row">
-              <div class="col-xxl-4 col-md-6">
-                <div class="card info-card today-card">
-                  <div class="card-body">
-                    <h5 class="card-title">
-                      Certificates <span>| Today</span>
-                    </h5>
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card today-card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  Certificates <span>| Today</span>
+                </h5>
 
-                    <div class="d-flex align-items-center">
-                      <div
-                        class="card-icon rounded-circle d-flex align-items-center justify-content-center"
-                      >
-                        <i class="bi bi-journal-check"></i>
-                      </div>
-                      <div class="ps-3">
-                        <h6>0</h6>
-                      </div>
-                    </div>
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="bi bi-journal-check"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>0</h6>
                   </div>
                 </div>
               </div>
-
-              <div class="col-xxl-4 col-xl-12">
-                <div class="card info-card total-card">
-                  <div class="card-body">
-                    <h5 class="card-title">
-                      Certificates <span>| Total</span>
-                    </h5>
-
-                    <div class="d-flex align-items-center">
-                      <div
-                        class="card-icon rounded-circle d-flex align-items-center justify-content-center"
-                      >
-                        <i class="bi bi-journal-check"></i>
-                      </div>
-                      <div class="ps-3">
-                        <h6>0</h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Customers Card -->
             </div>
           </div>
-          <!-- End Left side columns -->
-        </div>
-      </section>
-    </main>
-    <!-- End #main -->
 
-    <!-- Scripts -->
-    <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
-  </body>
-</html>
+          <div class="col-xxl-4 col-xl-12">
+            <div class="card info-card total-card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  Certificates <span>| Total</span>
+                </h5>
+
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="bi bi-journal-check"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>0</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Customers Card -->
+        </div>
+      </div>
+      <!-- End Left side columns -->
+    </div>
+  </section>
+</main>
+<!-- End #main -->
+
+{% endblock content %}

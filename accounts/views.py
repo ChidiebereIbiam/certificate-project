@@ -49,3 +49,5 @@ class PasswordsChangeView(PasswordChangeView, LoginRequiredMixin):
 @login_required
 def Password_Success(request):
     return render (request, 'registration/password_success.html', {})
+
+

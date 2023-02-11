@@ -5,3 +5,6 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def dashboard(request):
     return render(request, 'core/dashboard.html', {})
+
+def certificate_detail(request):
+    return render (request, 'core/certificate_detail.html', {})

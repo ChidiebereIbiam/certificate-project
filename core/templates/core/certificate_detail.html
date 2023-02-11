@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <style>
+      .certificate {
+        width: 700px;
+        height: 550px;
+        border: 10px solid white;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0px;
+        box-shadow: 0px 0px 10px gray;
+      }
+      h1 {
+        font-size: 30px;
+        font-weight: normal;
+        margin-bottom: 30px;
+      }
+      h2 {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .signature {
+        width: 150px;
+       
+        border-top: 1px solid black;
+        margin: 50px 100px 0px 0px;
+        text-align: center;
+      }
+      .signature p {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 5px;
+        margin-bottom: 0px;
+      }
+     
+    .cert-top{
+        max-width:100%;
+        max-height:100%
+        object-fit: contain;
+        }
+
+    .float-parent-element{
+        width:100%;
+    }
+    .float-child-element{
+        float: left;
+        width: 50%;
+    }
+    .first{
+        margin-right: 50%;
+        height: 100px;
+    }
+    .first p{
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+    .second{
+        margin-left: 50%;
+        height:100px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="certificate">
+   
+      <img class ="cert-top" src="{% static 'img/cert.jpg' %} ">
+      <h1>This Certificate is presented to</h1>
+      <h2><strong>Chidiebere Orji Ibiam</strong></h2>
+      <p>For completing the "<strong>Web Development</strong> Internship "</p>
+      <p>from 4 July 2022 to 4 Aug 2022.</p>
+      <p>We appreciate his work and contribution</p>
+      
+      <div class= "float-parent-element">
+        <div class="float-child-element">
+            <div class="first">
+                <p>______________</p> 
+                <p>Bimbsar </p>
+                <p>Program Manager</p>
+              </div> 
+        </div>
+
+        <div class="float-child-element">
+            <br>
+            <div class="second"> <img src="{% static 'img/qr.png' %} "></div>
+       
+        </div>
+
+      </div>
+      
+    
+    </div>
+  </body>
+</html>

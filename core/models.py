@@ -12,6 +12,7 @@ class Certificate(models.Model):
     start_date = models.DateField(auto_now=False, auto_now_add=False)
     end_date = models.DateField(auto_now=False, auto_now_add=False)
     generated_date = models.DateTimeField(default=timezone.now)
+    verification_link= models.CharField(max_length=225)
 
     def __str__(self):
         return f"{self.certificate_number}"

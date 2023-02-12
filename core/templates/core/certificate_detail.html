@@ -47,15 +47,17 @@
         }
 
     .float-parent-element{
-        width:100%;
+        width:600px;
+        height: 190px;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
-    .float-child-element{
-        float: left;
-        width: 50%;
-    }
+    
     .first{
-        margin-right: 50%;
-        height: 100px;
+        float: left;
+        width: 180px;
+        height: 160px;
     }
     .first p{
         font-size: 14px;
@@ -64,8 +66,21 @@
         margin-bottom: 0px;
     }
     .second{
-        margin-left: 50%;
-        height:100px;
+        float: left;
+        width: 180px;
+        height: 160px;
+        margin-left: 20px;
+    }
+    .third{
+        float: right;
+        width: 180px;
+        height: 160px;
+    }
+    .third p{
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 5px;
+        margin-bottom: 0px;
     }
     </style>
   </head>
@@ -79,21 +94,26 @@
       <p>from 4 July 2022 to 4 Aug 2022.</p>
       <p>We appreciate his work and contribution</p>
       
-      <div class= "float-parent-element">
-        <div class="float-child-element">
+      <div class= "float-parent">
             <div class="first">
                 <p>______________</p> 
                 <p>Bimbsar </p>
                 <p>Program Manager</p>
               </div> 
-        </div>
 
-        <div class="float-child-element">
-            <br>
-            <div class="second"> <img src="{% static 'img/qr.png' %} "></div>
        
-        </div>
-
+            <div class="second"> 
+                <br>
+                <img src="{% static 'img/qr.png' %} ">
+            </div>
+       
+            <div class="third"> 
+                <br>
+                <p>Certificate Number </p>
+                <p>123456789011</p>
+            </div>
+       
+        
       </div>
       
     

@@ -89,9 +89,9 @@
    
       <img class ="cert-top" src="{% static 'img/cert.jpg' %} ">
       <h1>This Certificate is presented to</h1>
-      <h2><strong>Chidiebere Orji Ibiam</strong></h2>
-      <p>For completing the "<strong>Web Development</strong> Internship "</p>
-      <p>from 4 July 2022 to 4 Aug 2022.</p>
+      <h2><strong>{{data.name}}</strong></h2>
+      <p>For completing the "<strong>{{data.role}}</strong> Internship "</p>
+      <p>from {{data.start_date}} to {{data.end_date}}.</p>
       <p>We appreciate his work and contribution</p>
       
       <div class= "float-parent">
@@ -103,14 +103,14 @@
 
        
             <div class="second"> 
-                <br>
-                <img src="{% static 'img/qr.png' %} ">
+                
+                <img src="{{data.qr_image.url}}" width="120" height="120">
             </div>
        
             <div class="third"> 
                 <br>
                 <p>Certificate Number </p>
-                <p>123456789011</p>
+                <p>{{data.certificate_number}}</p>
             </div>
        
         

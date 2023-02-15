@@ -12,7 +12,7 @@ def dashboard(request):
 
 def certificate_detail(request, id):
     cert_details = Certificate.objects.get(id=id)
-    context = {'cert_details':cert_details}
+    context = {'data':cert_details}
     return render (request, 'core/certificate_detail.html', context)
 
 def generate_certificate(request):

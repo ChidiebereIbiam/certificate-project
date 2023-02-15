@@ -16,7 +16,7 @@ class Certificate(models.Model):
     start_date = models.DateField(auto_now=False, auto_now_add=False)
     end_date = models.DateField(auto_now=False, auto_now_add=False)
     generated_date = models.DateTimeField(default=timezone.now)
-    verification_link= models.URLField(max_length=200)
+    verification_link= models.URLField(max_length=200, default="demo")
     qr_image = models.ImageField(upload_to='qrcode', blank=True)
 
     def save(self, *args, **kwargs):

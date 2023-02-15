@@ -1,0 +1,92 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Generate Certificate - Kartexa{% endblock title %}
+
+{% block content %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Generate Certificate</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+            <li class="breadcrumb-item active">Certificate</li>
+            <li class="breadcrumb-item active">Generate Certificate</li>
+          </ol>
+        </nav>
+      </div><!-- End Page Title -->
+
+      <section class="section">
+        <div class="row">
+          <div class="col-lg-12">
+  
+         
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Generate Certificate</h5>
+  
+                <!-- Multi Columns Form -->
+                <form class="row g-3" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{form.errors}}
+              
+                  
+                  <div class="col-md-12">
+                    <label for="profile_photo" class="form-label">Profile Photo</label>
+                    <input type="file" name="profile_photo" id="profile_photo" class="form-control">
+                  </div>
+                  <div class="col-md-12">
+                      <label for="inputName5" class="form-label">Certificate Number</label>
+                      <input type="number" name="certificate_number" id="certificate_number" class="form-control" readonly>
+                    </div>
+                  <div class="col-md-12">
+                      <label for="inputPassword5" class="form-label">Name</label>
+                      <input type="text" name="c-name" id="" class="form-control">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="inputEmail5" class="form-label">Role</label>
+                    <input type="text" name="role" id="" class="form-control">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="inputPassword5" class="form-label">Organization</label>
+                    <input type="text" name="organization" id="" class="form-control" value="Kartexa" readonly>
+                  </div>
+                  <div class="col-md-12">
+                      <label for="inputPassword5" class="form-label">Organizer</label>
+                      <input type="text" name="organizer" id="" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                      <label for="inputPassword5" class="form-label">Start Date</label>
+                      <input type="date" name="start_date" id="" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputPassword5" class="form-label">End Date</label>
+                    <input type="date" name="end_date" id="" class="form-control">
+                </div>
+  
+  
+      
+  
+                  
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Generate</button>
+                </div>
+            </form>
+  
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section>
+
+
+</main>
+<script>
+    var number = document.getElementById('certificate_number');
+    number.value=("" + Math.random()).substring(2,13);
+</script>
+{% endblock content %}

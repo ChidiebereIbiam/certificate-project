@@ -11,7 +11,7 @@ def dashboard(request):
     return render(request, 'core/dashboard.html', {})
 
 def certificate_detail(request, id):
-    cert_details = Certificate.objects.get(id=id)
+    cert_details = Certificate.objects.get(certificate_number=id)
     context = {'data':cert_details}
     return render (request, 'core/certificate_detail.html', context)
 
@@ -28,6 +28,6 @@ def generate_certificate(request):
         verification_link = f"http://127.0.0.1:8000/{cerificate_number}/verify"
         Certificate.objects.create(profile_photo=profile_photo, certificate_number = cerificate_number, name = name, role=role, organization=organization, organizer=organizer, start_date=start_date, end_date=end_date, verification_link=verification_link)
         
-        return HttpResponseRedirect(reverse('dashboard'))
+        return HttpResponseRedirect(reverse('certificate_detail', args=(cerificate_number)))
 
     return render(request, 'core/generate_certificate.html')

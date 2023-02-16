@@ -22,16 +22,16 @@ class Certificate(models.Model):
 
     def save(self, *args, **kwargs):
         qrcode_img = qrcode.make(self.verification_link)
-        canvas = Image.new("RGB", (300,300), "white")
+        canvas = Image.new("RGB", (400,400), "white")
         draw = ImageDraw.Draw(canvas)
         canvas.paste(qrcode_img)
         buffer = BytesIO()
         canvas.save(buffer, "PNG")
-        self.qr_image.save(f'image{random.randint(0,9999)}', File(buffer), save=False)
+        self.qr_image.save(f'image{random.randint(0,9999)}.png', File(buffer), save=False)
         canvas.close()
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.certificate_number}"
+        return f"{self.certificate_number} {self.name}"
     
 

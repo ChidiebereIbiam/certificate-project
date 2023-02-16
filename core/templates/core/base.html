@@ -15,15 +15,21 @@
     <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon" />
 
     <!-- Bootstrap CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap5.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-    <link
-      rel="stylesheet"
-      href="{% static 'bootstrap-icons/bootstrap-icons.css' %}"
-    />
+    <link rel="stylesheet" href="{% static 'bootstrap-icons/bootstrap-icons.css' %}"/>
     <link rel="stylesheet" href="{% static 'boxicons/css/boxicons.css' %}" />
 
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <!-- JQuery -->
+  <script src = "{% static 'js/jquery-3.5.1.js' %}"></script>
+  <script src = "{% static 'js/jquery.validate.js' %}"></script>
+  <script src = "{% static 'js/jquery.dataTables.min.js' %}"></script>
+
+  <!-- Sweet Alert-->
+  <link href="{% static 'css/sweetalert2.min.css' %}" rel="stylesheet">
   </head>
   <body>
     <!-- ======= Header ======= -->
@@ -119,9 +125,9 @@
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="{% url 'manage_certificate' %}">
                 <i class="bi bi-calendar-event"></i
-                ><span>View Certificates</span>
+                ><span>Manage Certificates</span>
               </a>
             </li>
             <li>
@@ -154,6 +160,7 @@
     {% block scriptArea %}
     {% endblock scriptArea %}
     <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
+    <script src="{% static 'js/sweetalert2.min.js' %} "></script>
   
   </body>
 </html>

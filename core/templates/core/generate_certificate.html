@@ -27,7 +27,7 @@
               <div class="card-body">
                 <h5 class="card-title">Generate Certificate</h5>
   
-                <!-- Multi Columns Form -->
+              
                 <form class="row g-3" method="post" enctype="multipart/form-data">
                   {% csrf_token %}
                   {{form.errors}}
@@ -37,32 +37,31 @@
                     <label for="profile_photo" class="form-label">Profile Photo</label>
                     <input type="file" name="profile_photo" id="profile_photo" class="form-control">
                   </div>
+                 
+                      <input type="hidden" name="certificate_number" id="certificate_number" class="form-control" readonly>
+                   
                   <div class="col-md-12">
-                      <label for="inputName5" class="form-label">Certificate Number</label>
-                      <input type="number" name="certificate_number" id="certificate_number" class="form-control" readonly>
-                    </div>
-                  <div class="col-md-12">
-                      <label for="inputPassword5" class="form-label">Name</label>
+                      <label for="" class="form-label">Name</label>
                       <input type="text" name="c_name" id="" class="form-control">
                   </div>
                   <div class="col-md-12">
-                    <label for="inputEmail5" class="form-label">Role</label>
+                    <label for="" class="form-label">Role</label>
                     <input type="text" name="role" id="" class="form-control">
                   </div>
                   <div class="col-md-12">
-                    <label for="inputPassword5" class="form-label">Organization</label>
+                    <label for="" class="form-label">Organization</label>
                     <input type="text" name="organization" id="" class="form-control" value="Kartexa" readonly>
                   </div>
                   <div class="col-md-12">
-                      <label for="inputPassword5" class="form-label">Organizer</label>
+                      <label for="" class="form-label">Organizer</label>
                       <input type="text" name="organizer" id="" class="form-control">
                   </div>
                   <div class="col-md-6">
-                      <label for="inputPassword5" class="form-label">Start Date</label>
+                      <label for="" class="form-label">Start Date</label>
                       <input type="date" name="start_date" id="" class="form-control">
                   </div>
                   <div class="col-md-6">
-                    <label for="inputPassword5" class="form-label">End Date</label>
+                    <label for="" class="form-label">End Date</label>
                     <input type="date" name="end_date" id="" class="form-control">
                 </div>
   

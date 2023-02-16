@@ -42,7 +42,7 @@
      
     .cert-top{
         max-width:100%;
-        max-height:100%
+        max-height:100%;
         object-fit: contain;
         }
 
@@ -82,6 +82,13 @@
         margin-top: 5px;
         margin-bottom: 0px;
     }
+
+    .verification p{
+      margin: 3% 0 0 0;
+      font-size: 20px;
+      font-weight: bold;
+      text-align : center;
+    }
     </style>
   </head>
   <body>
@@ -117,6 +124,10 @@
       </div>
       
     
+    </div>
+
+    <div class="verification">
+      <p> Verification Link: <a href="{{data.verification_link}}" target="_blank" rel="noopener noreferrer">{{data.verification_link}}</a></p>
     </div>
   </body>
 </html>

@@ -8,4 +8,5 @@ urlpatterns = [
     path('generate_certificate/', views.generate_certificate, name='generate_certificate'),
     path('manage_certificate/', views.manage_certificate, name="manage_certificate"),
     path('<int:id>/delete_certificate', views.delete_certificate, name="delete_certificate"),
+    path('<int:id>/download', views.generate_pdf, name="download")
 ]

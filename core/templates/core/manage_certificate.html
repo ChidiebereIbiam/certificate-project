@@ -57,7 +57,7 @@
                           <td>{{object.generated_date}}</td>
                           <td>
                             <a class='btn btn-primary' href="{% url 'certificate_detail' object.certificate_number%}"> <i class="bi bi-journal-text"></i></a>  
-                            <a class='btn btn-warning' href=""> <i class="bi bi-save"></i></a>
+                            <a class='btn btn-warning' href="{% url 'download' object.certificate_number %}"> <i class="bi bi-save"></i></a>
                             <button class='btn btn-danger deleteCertificate' data-action='/{{object.id}}/delete_certificate' data-pk='{{object.pk}}'> <i class="bi bi-trash"></i></button>
                           </td>
   

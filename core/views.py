@@ -3,14 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from .models import Certificate
-from django.views.generic import View
 from django.shortcuts import get_object_or_404
 
 from .utils import render_to_pdf
-from django.template.loader import get_template, render_to_string
-
 from django.http import HttpResponse
-from xhtml2pdf import pisa
 
 
 
@@ -51,16 +47,11 @@ def delete_certificate(request, id):
     certificate.delete()
     return HttpResponseRedirect(reverse('manage_certificate'))
 
-
-
 def generate_pdf(request, id):
-    # Define the context data
     cert_details = Certificate.objects.get(certificate_number=id)
     context = {'data':cert_details}
-
-    # Render the template to a PDF
-    pdf = render_to_pdf('core/certificate_detail.html', context)
-    return pdf
+    pdf = render_to_pdf('core/temp.html', context)
+    return HttpResponse(pdf, content_type='application/pdf')
 
 
 def verify_certificate(request):

@@ -16,7 +16,23 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-md">
-          <a class="navbar-brand" href="#"><img src="{% static 'img/transparent.png' %}" width="200"></a>
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'img/transparent.png' %}" width="100">
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="{% url 'verify_certificate' %}">Verify Certificate</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Signup</a>
+            </li>
+           
+          </ul>
+         
         </div>
       </nav>
       
@@ -83,7 +99,7 @@
       </section>
 
 
-      <footer class="py-3 my-4">
+      <footer class="py-1 my-2">
         <p class="text-center text-muted">© 2019-23 Kartexa. All Rights Reserved</p>
 
       </footer>

@@ -1,19 +1,13 @@
 from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
+from io import BytesIO
 
-def render_to_pdf(template_path, context):
-    # Load the template
+def render_to_pdf(template_path, context_dic={}):
     template = get_template(template_path)
-    html = template.render(context)
-
-    # Create a HttpResponse object with the PDF file
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'filename="output.pdf"'
-
-    # Create a PDF file using the HTML content
-    pisa_status = pisa.CreatePDF(html, dest=response)
-    if pisa_status.err:
-        return HttpResponse('PDF generation failed', status=500)
-
-    return response
+    html = template.render(context_dic)
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")),result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return None

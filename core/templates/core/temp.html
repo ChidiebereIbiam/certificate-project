@@ -3,6 +3,7 @@
 <html>
   <head>
     <style type="text/css">
+      
       .certificate {
         width: 700px;
         height: 550px;
@@ -94,7 +95,7 @@
   <body>
     <div class="certificate">
    
-      <img class ="cert-top" src="{% static 'img/cert.jpg' %} ">
+      <img class ="cert-top" src=" {% static 'img/cert.jpg' %} " id="header_content">
       <h1>This Certificate is presented to</h1>
       <h2><strong>{{data.name}}</strong></h2>
       <p>For completing the "<strong>{{data.role}}</strong> Internship "</p>
@@ -119,15 +120,13 @@
                 <p>Certificate Number </p>
                 <p>{{data.certificate_number}}</p>
             </div>
-       
+            <a href="{{data.verification_link}}" target="_blank" rel="noopener noreferrer">{{data.verification_link}}</a>
         
       </div>
       
     
     </div>
 
-    <div class="verification">
-      <p> Verification Link: <a href="{{data.verification_link}}" target="_blank" rel="noopener noreferrer">{{data.verification_link}}</a></p>
-    </div>
+   
   </body>
 </html>

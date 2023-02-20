@@ -3,137 +3,156 @@
 <html>
   <head>
     <title>{{data.name}} - Kartexa</title>
-       <!-- Favicons -->
-       <link href="{% static 'img/logo.png' %}" rel="icon" />
-       <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon" />
-   <style>
-    
-.certificate {
-  width: 700px;
-  height: 550px;
-  border: 10px solid white;
-  text-align: center;
-  margin: 0 auto;
-  padding: 0px;
-  box-shadow: 0px 0px 10px gray;
-}
-h1 {
-  font-size: 30px;
-  font-weight: normal;
-  margin-bottom: 30px;
-}
-h2 {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-.signature {
-  width: 150px;
- 
-  border-top: 1px solid black;
-  margin: 50px 100px 0px 0px;
-  text-align: center;
-}
-.signature p {
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 0px;
-}
+    <!-- Favicons -->
+    <link href="{% static 'img/logo.png' %}" rel="icon" />
+    <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon" />
+    <style>
+      #border_img {
+        border: 10px solid transparent;
+        padding: 10px;
+        border-image-source: url(https://pluspng.com/img-png/png-certificate-borders-free-8-certificate-templates-free-itinerary-template-sample-intended-for-red-certificate-border-png-28044-1516.png);
+        border-image-slice: 50;
+      }
+     
+      .certificate {
+        width: 700px;
+        height: 600px;
+        border: 10px solid white;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0px;
+        box-shadow: 0px 0px 10px gray;
+      }
+      h1 {
+        font-size: 30px;
+        font-weight: normal;
+        margin-bottom: 30px;
+      }
+      h2 {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .signature {
+        width: 150px;
 
-.cert-top{
-  max-width:100%;
-  max-height:100%;
-  object-fit: contain;
-  }
+        border-top: 1px solid black;
+        margin: 50px 100px 0px 0px;
+        text-align: center;
+      }
+      .signature p {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 5px;
+        margin-bottom: 0px;
+      }
 
-.float-parent-element{
-  width:600px;
-  height: 190px;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
+      .cert-top {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
 
-.first{
-  float: left;
-  width: 180px;
-  height: 160px;
-}
-.first p{
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 0px;
-}
-.second{
-  float: left;
-  width: 180px;
-  height: 160px;
-  margin-left: 20px;
-}
-.third{
-  float: right;
-  width: 180px;
-  height: 160px;
-}
-.third p{
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 0px;
-}
+      .float-parent-element {
+        width: 600px;
+        height: 190px;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
 
-.verification p{
-margin: 3% 0 0 0;
-font-size: 20px;
-font-weight: bold;
-text-align : center;
-}
+      .first {
+        float: left;
+        width: 180px;
+        height: 100px;
+      }
+      .first p {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 5px;
+        margin-bottom: 0px;
+      }
+      .second {
+        float: left;
+        width: 180px;
+        height: 160px;
+        margin-left: 70px;
+      }
+      .third {
+        float: right;
+        width: 180px;
+        height: 100px;
+      }
+      .third p {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 5px;
+        margin-bottom: 0px;
+      }
 
-   </style>
+      .verification p {
+        margin: 3% 0 0 0;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .verify{
+        all: unset;
+      }
+      .verify a{
+        all:unset;
+      }
+    </style>
   </head>
   <body>
-    <div class="certificate">
-   
-      <img class ="cert-top" src="{% static 'img/cert.jpg' %} ">
+    
+    <div class="certificate" id="border_img">
+      <img class="cert-top" src="{% static 'img/cert.jpg' %} " />
       <h1>This Certificate is presented to</h1>
       <h2><strong>{{data.name}}</strong></h2>
       <p>For completing the "<strong>{{data.role}}</strong> Internship "</p>
       <p>from {{data.start_date}} to {{data.end_date}}.</p>
       <p>We appreciate his work and contribution</p>
-      
-      <div class= "float-parent">
-            <div class="first">
-                <p>______________</p> 
-                <p>Bimbsar </p>
-                <p>Program Manager</p>
-              </div> 
 
-       
-            <div class="second"> 
-                
-                <img src="{{data.qr_image.url}}" width="120" height="120">
-            </div>
-       
-            <div class="third"> 
-                <br>
-                <p>Certificate Number </p>
-                <p>{{data.certificate_number}}</p>
-            </div>
-       
-        
+      <div class="float-parent">
+        <div class="first">
+          <p>______________</p>
+          <p>Bimbsar</p>
+          <p>Program Manager</p>
+        </div>
+
+        <div class="second">
+          <img src="{{data.qr_image.url}}" width="150" height="150" />
+        </div>
+
+        <div class="third">
+          <br />
+          <p>Certificate Number</p>
+          <p>{{data.certificate_number}}</p>
+        </div>
       </div>
-      
+
     
+    
+       
+       <div class="verify">
+      <p>
+        
+        <a
+          href="{{data.verification_link}}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{data.verification_link}}</a
+        >
+      </p>
+    </div>
     </div>
 
-    <div class="verification">
-      <p> Verification Link: <a href="{{data.verification_link}}" target="_blank" rel="noopener noreferrer">{{data.verification_link}}</a></p>
-    </div>
+   
   </body>
 </html>

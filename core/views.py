@@ -59,3 +59,12 @@ def generate_pdf(request, id):
     # Render the template to a PDF
     pdf = render_to_pdf('core/certificate_detail.html', context)
     return pdf
+
+
+def verify_certificate(request):
+    return render(request, 'core/verify_certificate.html', {})
+
+def verify(request, id):
+    cert_details = Certificate.objects.get(certificate_number=id)
+    context = {'data':cert_details}
+    return render (request, 'core/verify.html', context)

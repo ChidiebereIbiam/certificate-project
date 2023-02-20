@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+  {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Personal Portfolio Website</title>
-    <!----CSS link----->
+    <title>{{data.name}} - Kartexa</title>
+
     <link rel="stylesheet" href="gg.css">
+       <!-- Favicons -->
+       <link href="{% static 'img/logo.png' %}" rel="icon" />
+       <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon" />
     <style>.logo{
     max-height: 50px;
 }
@@ -107,14 +111,30 @@ button{
     
 }
 button{
-    transform: scale(1.3);
+    
     cursor: pointer;
     
+}
+#download-link:link, download-link:visited {
+  
+  background-color: #f44336;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 19px;
+}
+
+download-link:hover, download-link:active {
+  background-color: red;
+
+  
 }
 .announcement {
     border-radius: 25px;
   padding: 20px;
-  width: 200px;
+  width: 180px;
   height: 150px;
   position: absolute;
   right: 0px;
@@ -144,7 +164,7 @@ button{
     justify-content: space-between;
     padding-top: 40px;
     padding-left: 10%;
-    padding-right: 60%;
+    padding-right: 50%;
     font-size: 38px;
     flex-wrap: wrap;
 }
@@ -228,31 +248,41 @@ padding: 15px 8px 15px 8px;
 }
 .log{
     padding-top: 50px;
-}</style>
+}
+,footer-link a:link {
+  color: red;
+}
+</style>
 </head>
     <body>
          <nav >
-         <img src="TextLogo.png" class="logo">
+         <img src="{% static 'img/logo.png' %}" class="logo">
        <ul>
-            <li><a href="index1.html" target="_top">Home</a></li>
-            <li><a href="about.html" target="_top">Profile</a></li>
-            <li><a href="project.html" target="_top">Events</a></li>
-            <li><a href="certification.html" target="_top">Certification</a></li>
-            </ul>
-        <button type="button">Contact us</button>
+        {% if user.is_authenticated %}
+           <li><a href="{% url 'dashboard' %}" target="_top">Dashboard</a></li>
+            <li><a href="{% url 'profile_page' user.profile.id %}" target="_top">Profile</a></li>
+            <li><a href="{% url 'manage_certificate' %}" target="_top">Manage Certificate</a></li>
+        {% else %}
+        <li><a href="login" target="_top">Login</a></li>
+        <li><a href="register" target="_top">Signup</a></li>
+
+
+        {% endif %}
+                      </ul>
+        
     </nav>
         <div class="announcement">
     <p>Announcement </p>
   </div>
     <div class="ragra">
-        <p>Welcome Octavia,<br></p>
+        <p>Welcome {{data.name | truncatewords:10 }},<br></p>
      </div>
     <div class="ragra">
         <div class="image">
-        <img src="passport%20size%20phote.jpeg" alt="image"  height="120px" width="120px">
+        <img src="{{data.profile_photo.url}}" alt="image"  height="120px" width="120px">
         </div>
         <div class="image">
-            <h5><span class='notbold'>Remarks<br>Octavia is an Outstanding and Innovative person</span></h5>
+            <h5><span class='notbold'>Remarks<br>{{data.name}} is an Outstanding and Innovative person</span></h5>
         </div>
         <div class="col">
                         <div class="table-responsive">
@@ -260,23 +290,23 @@ padding: 15px 8px 15px 8px;
                                 <tbody>
                                     <tr>
                                         <td><Strong>Certification Number</Strong></td>
-                                        <td class="text-primary">9578276872453</td>
+                                        <td class="text-primary">{{data.certificate_number}}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Name</strong></td>
-                                        <td class="text-primary">Octavia</td>
+                                        <td class="text-primary">{{data.name}}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Role</strong></td>
-                                        <td class="text-primary">SDE Intern</td>
+                                        <td class="text-primary">{{data.role}}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Organisation</strong></td>
-                                        <td class="text-primary">Kartexa</td>
+                                        <td class="text-primary">{{data.organization}}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Internship Organizer</strong></td>
-                                        <td class="text-primary">Vidvandya</td>
+                                        <td class="text-primary">{{data.organizer}}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Internship Name</strong></td>
@@ -284,24 +314,24 @@ padding: 15px 8px 15px 8px;
                                     </tr>
                                     <tr>
                                         <td><strong>Internship Date</strong></td>
-                                        <td class="text-primary">12-Jun-22 to 12-Jul-22</td>
+                                        <td class="text-primary">{{data.start_date}} to {{data.end_date}}</td>
                                         
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-        <button class="down" href="#">Download</button>
-        <button class="print" href="#">Print</button>
+        <a onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)" id="download-link" download="verify.html"  href="#">Download</a>
+        <button class="print" href="" onclick="window.print()">Print</button>
         </div>
         <div>
         <footer id="footer" class="grid-container np-mobile ">
-            <h2 class="log"><center><a href="https://kartexa.com/pj/"><img src="https://kartexa.com/pj/wp-content/uploads/2023/01/transparent.png" alt="Kartexa" width="200"></a></center></h2>
+          <br>
             <div class="published border-effect">
                 <div class="span-item">
                     
                    <center>© 2019-2023 </center>
-                    <center><a href="https://kartexa.com">KarTexa.com</a></center>
+                    <center><a href="https://kartexa.com" class="footer-link">KarTexa.com</a></center>
                     </div>
                 
                 <div class="span4 footerlogo item">

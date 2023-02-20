@@ -27,6 +27,8 @@
               <div class="card-body">
                   <p></p>
                   <a class="btn btn-outline-primary" href="{% url 'generate_certificate' %}">Generate Certificate</a>
+                  <a class="btn btn-outline-warning" href="{% url 'verify_certificate' %}">Verify Certificate</a>
+                
           </div>
             
             <div class="card">
@@ -79,6 +81,34 @@
       </section>
 
 </main>
+<div class="modal fade" id="ajaxModel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" id="modelHeading"></h4>
+          </div>
+          <div class="modal-body">
+              <div class="alert alert-danger error-msg" style="display:none">
+                  <ul class="mb-0"></ul>
+              </div>
+              <form id="certificateForm" name="certificateForm" class="form-horizontal" novalidate>
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Certificate Number</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="certificate_number" name="certificate_number" placeholder="Enter Certificate Number" value="" maxlength="50">
+                    </div>
+                  </div>
+                  <div class="col-sm-offset-2 col-sm-10 mt-2">
+                    <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Verify</button>
+                   </div>
+                 
+                 
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
 
 <script type="text/javascript">
     $(function(){
@@ -89,6 +119,8 @@
 
         });
     });
+
+   
 
     //Delete Certificate
     $(document).ready(function(){

@@ -5,8 +5,7 @@ from django.contrib.auth.models import Group
 
 def profile(sender, instance, created,**kwargs):
      if created:
-        group = Group.objects.get(name='users')
-        instance.groups.add(group)
+       
         
         Profile.objects.create(
             user=instance,

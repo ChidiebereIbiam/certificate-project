@@ -1,343 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
   {% load static %}
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>{{data.name}} - Kartexa</title>
 
-    <link rel="stylesheet" href="gg.css">
-       <!-- Favicons -->
-       <link href="{% static 'img/logo.png' %}" rel="icon" />
-       <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon" />
-    <style>.logo{
-    max-height: 50px;
-}
- * {
+    <link rel="stylesheet" href="gg.css" />
+    <!-- Favicons -->
+    <link href="{% static 'img/logo.png' %}" rel="icon" />
+    <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon" />
+    <style>
+      .logo {
+        max-height: 50px;
+      }
+      * {
+        margin: 0px;
 
-  margin: 0px;
+        padding: 0px;
 
-  padding: 0px;
+        box-sizing: border-box;
+      }
 
-  box-sizing: border-box;
+      .body-text {
+        display: flex;
 
-}
+        font-family: "Montserrat", sans-serif;
 
-.body-text {
+        align-items: center;
 
-  display: flex;
+        justify-content: center;
 
-  font-family: "Montserrat", sans-serif;
+        margin-top: 250px;
+      }
 
-  align-items: center;
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 40px;
+        padding-left: 10%;
+        padding-right: 10%;
+      }
 
-  justify-content: center;
+      .notbold {
+        font-size: 17px;
+        font-weight: normal;
+        border-radius: 20px;
+        padding: 20px;
+        width: 500px;
+        right: 0px;
+        width: 300px;
+        height: 90px;
+        padding: 8px;
+        display: inline-block;
+        text-align: center;
+        background: rgb(245, 93, 66);
+        color: white;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+      }
+      nav ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+      }
+      nav ul li a {
+        color: gray;
+        position: relative;
+        padding: 5px 0;
+        text-decoration: none;
+        font-weight: bold;
+      }
 
-  margin-top: 250px;
+      nav ul li a:hover {
+        background-size: 100% 3px;
+      }
+      nav ul li a:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-size: 0% 3px;
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background: linear-gradient(
+          to right,
+          rgb(245, 93, 66),
+          rgb(66, 245, 191)
+        );
+        transition: 0.3s;
+        bottom: 0;
+      }
+      nav ul li a:hover:after {
+        width: 100%;
+      }
+      button {
+        border: ;
+        background: white;
+        padding: 2px 5px;
+        color: black;
+        position: relative;
+        display: inline-block;
+        font-size: 15px;
+        transition: 0.4s;
+      }
+      button {
+        cursor: pointer;
+      }
+      #download-link:link,
+      download-link:visited {
+        background-color: #f44336;
+        color: white;
+        padding: 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 19px;
+      }
 
-} 
+      download-link:hover,
+      download-link:active {
+        background-color: red;
+      }
+      .announcement {
+        border-radius: 25px;
+        padding: 20px;
+        width: 180px;
+        height: 150px;
+        position: absolute;
+        right: 0px;
+        width: 220px;
+        padding: 8px;
+        display: inline-block;
+        height: 70%;
+        text-align: center;
+        background: rgb(245, 93, 66);
+        color: white;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+        font-size: 0.8em;
+      }
 
+      .announcement a {
+        color: #ccc;
+      }
 
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 40px;
-    padding-left: 10%;
-    padding-right: 10%
-}
+      .announcement a:hover {
+        color: red;
+      }
+      .ragra {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 40px;
+        padding-left: 10%;
+        padding-right: 50%;
+        font-size: 38px;
+        flex-wrap: wrap;
+      }
+      .ragra text {
+        font-size: 30px;
+      }
+      .ragra image {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+      }
+      .ragra::image {
+        content: "";
+        clear: both;
+        display: table;
+      }
 
-.notbold{
-    font-size:18px;
-    font-weight:normal;
-    border-radius: 20px;
-  padding: 20px;
-  width: 500px;
-  right: 0px;
-  width: 250px;
-height: 100px;
-  padding: 8px;
-  display: inline-block;
-  text-align: center;
-  background:rgb(245, 93, 66);
-  color: black;
-  margin: 0;
-  padding: 0;
-  vertical-align:middle ;
-    
-        
-}
-nav ul li{
-  list-style: none;
-  display: inline-block;
-  padding: 10px 20px;
-  text-decoration: none;
-}
-nav ul li a{
-  color: gray;
-  position: relative;
-  padding: 5px 0;
-  text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a:hover{
-    background-size: 100% 3px;
-}
-nav ul li a:after{
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 0;
-  height: 3px;
-    background-size: 0% 3px;
-  background-repeat: no-repeat;
-  background-position:left bottom;
-  background: linear-gradient(to right,rgb(245, 93, 66),rgb(66, 245, 191));
-  transition: .3s;
-  bottom: 0;
-}
-nav ul li a:hover:after{
-  width: 100%;
-}
-button{
-    border:;
-    background:white;
-    padding: 2px 5px;
-    color: black;
-    position: relative;
-    display: inline-block;
-    font-size: 15px;
-    transition: .4s;
-    
-}
-button{
-    
-    cursor: pointer;
-    
-}
-#download-link:link, download-link:visited {
-  
-  background-color: #f44336;
-  color: white;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 19px;
-}
-
-download-link:hover, download-link:active {
-  background-color: red;
-
-  
-}
-.announcement {
-    border-radius: 25px;
-  padding: 20px;
-  width: 180px;
-  height: 150px;
-  position: absolute;
-  right: 0px;
-  width: 220px;
-  padding: 8px;
-  display: inline-block;
-  height:70%;
-  text-align: center;
-  background:rgb(245, 93, 66);
-  color: white;
-  margin: 0;
-  padding: 0;
-  vertical-align:middle ;
-  font-size: 0.8em;
-}
-
-.announcement a { 
-  color: #ccc; 
-}
-
-.announcement a:hover {
-  color: red;
-}
-.ragra{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 40px;
-    padding-left: 10%;
-    padding-right: 50%;
-    font-size: 38px;
-    flex-wrap: wrap;
-}
-.ragra text{
-    font-size: 30px;
-}
-.ragra image{
-     float: left;
-  width: 33.33%;
-  padding: 5px;
-}
-.ragra::image {
-  content: "";
-  clear: both;
-  display: table;
-
-}
-
-.col{
-
-     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-left: 10%;
-    padding-right: 60%;
-    font-size: 20px;
-    flex-wrap: wrap;
-
-}
-.table{
-    display: table;
-    text-indent:initial;
-    border-spacing: 16px;
-/*
+      .col {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-left: 10%;
+        padding-right: 60%;
+        font-size: 20px;
+        flex-wrap: wrap;
+      }
+      .table {
+        display: table;
+        text-indent: initial;
+        border-spacing: 16px;
+        /*
      border: 2px solid red;
   border-radius: 8px;
   padding: 5px;
 */
-}
-.col td{
-    White-space: nowrap;
-    color: cornflowerblue;
-border: none;
-padding: 15px 8px 15px 8px;
-}
-/*
+      }
+      .col td {
+        white-space: nowrap;
+        color: cornflowerblue;
+        border: none;
+        padding: 15px 8px 15px 8px;
+      }
+      /*
 
 
 */
-.down{
-     border: 2px solid red;
-    width: 100px;
-    height: 45px;
-  border-radius: 8px;
-    border: none;
-    color: white;
-    background:rgb(245, 93, 66);
-}
-.print{
-    width: 100px;
-    height: 45px;
-     border: 2px solid red;
-  border-radius: 8px;
-    border: none;
-    color: white;
-    background:rgb(66, 245, 191);
-}
-#footer {
-            bottom: 0;
-    left: 0;
-            width: 100%;
-/*            background: linear-gradient(to right,rgb(245, 93, 66),rgb(66, 245, 191));*/
-     clear: both;
-    flex: 0 0 50px;
-    height: 100px;
-    position: relative;
-}
-.span-item{
-    padding-top: 10px;
-}
-.log{
-    padding-top: 50px;
-}
-,footer-link a:link {
-  color: red;
-}
-</style>
-</head>
-    <body>
-         <nav >
-         <img src="{% static 'img/logo.png' %}" class="logo">
-       <ul>
+      .down {
+        border: 2px solid red;
+        width: 100px;
+        height: 45px;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        background: rgb(245, 93, 66);
+      }
+      .print {
+        width: 100px;
+        height: 45px;
+        border: 2px solid red;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        background: rgb(66, 245, 191);
+      }
+      #footer {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        /*            background: linear-gradient(to right,rgb(245, 93, 66),rgb(66, 245, 191));*/
+        clear: both;
+        flex: 0 0 50px;
+        height: 100px;
+        position: relative;
+      }
+      .span-item {
+        padding-top: 10px;
+      }
+      .log {
+        padding-top: 50px;
+      }
+      ,
+      footer-link a:link {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <img src="{% static 'img/transparent.png' %}" class="logo" />
+      <ul>
         {% if user.is_authenticated %}
-           <li><a href="{% url 'dashboard' %}" target="_top">Dashboard</a></li>
-            <li><a href="{% url 'profile_page' user.profile.id %}" target="_top">Profile</a></li>
-            <li><a href="{% url 'manage_certificate' %}" target="_top">Manage Certificate</a></li>
+        <li><a href="{% url 'dashboard' %}" target="_top">Dashboard</a></li>
+        <li>
+          <a href="{% url 'profile_page' user.profile.id %}" target="_top"
+            >Profile</a
+          >
+        </li>
+        <li>
+          <a href="{% url 'manage_certificate' %}" target="_top"
+            >Manage Certificate</a
+          >
+        </li>
         {% else %}
         <li><a href="login" target="_top">Login</a></li>
         <li><a href="register" target="_top">Signup</a></li>
 
-
         {% endif %}
-                      </ul>
-        
+      </ul>
     </nav>
-        <div class="announcement">
-    <p>Announcement </p>
-  </div>
+    {% comment %}
+    <div class="announcement">
+      <p>Announcement</p>
+    </div>
+    {% endcomment %}
+    {% if data %}
     <div class="ragra">
-        <p>Welcome {{data.name | truncatewords:10 }},<br></p>
-     </div>
+      <p>Welcome {{data.name | truncatewords:10 }},<br /></p>
+    </div>
     <div class="ragra">
-        <div class="image">
-        <img src="{{data.profile_photo.url}}" alt="image"  height="120px" width="120px">
+      <div class="image">
+        <img
+          src="{{data.profile_photo.url}}"
+          alt="image"
+          height="120px"
+          width="120px"
+        />
+      </div>
+      <div class="image">
+        <h5>
+          <span class="notbold"
+            ><strong>Remarks</strong><br />{{data.name}} is an Outstanding and
+            Innovative person</span
+          >
+        </h5>
+      </div>
+      <div class="col">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Certification Number</strong></td>
+                <td class="text-primary">{{data.certificate_number}}</td>
+              </tr>
+              <tr>
+                <td><strong>Name</strong></td>
+                <td class="text-primary">{{data.name}}</td>
+              </tr>
+              <tr>
+                <td><strong>Role</strong></td>
+                <td class="text-primary">{{data.role}}</td>
+              </tr>
+              <tr>
+                <td><strong>Organisation</strong></td>
+                <td class="text-primary">{{data.organization}}</td>
+              </tr>
+              <tr>
+                <td><strong>Internship Organizer</strong></td>
+                <td class="text-primary">{{data.organizer}}</td>
+              </tr>
+              <tr>
+                <td><strong>Internship Name</strong></td>
+                <td class="text-primary">{{data.internship_name}}</td>
+              </tr>
+              <tr>
+                <td><strong>Internship Date</strong></td>
+                <td class="text-primary">
+                  {{data.start_date}} to {{data.end_date}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="image">
-            <h5><span class='notbold'>Remarks<br>{{data.name}} is an Outstanding and Innovative person</span></h5>
+      </div>
+      <a
+        onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)"
+        id="download-link"
+        download="verify.html"
+        href="#"
+        >Download</a
+      >
+      <button class="print" href="" onclick="window.print()">Print</button>
+    </div>
+    {% else %}
+    <div class="ragra">
+
+      <p>Certificate Not Found <br>Sorry Certificate number does not exist!!!<br /></p>
+    </div>
+    {% endif %}
+    <div>
+      <footer id="footer" class="grid-container np-mobile">
+        <br />
+        <div class="published border-effect">
+          <div class="span-item">
+            <center>© 2019-2023</center>
+            <center>
+              <a href="https://kartexa.com" class="footer-link">KarTexa.com</a>
+            </center>
+          </div>
+
+          <div class="span4 footerlogo item"></div>
         </div>
-        <div class="col">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td><Strong>Certification Number</Strong></td>
-                                        <td class="text-primary">{{data.certificate_number}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Name</strong></td>
-                                        <td class="text-primary">{{data.name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Role</strong></td>
-                                        <td class="text-primary">{{data.role}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Organisation</strong></td>
-                                        <td class="text-primary">{{data.organization}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Internship Organizer</strong></td>
-                                        <td class="text-primary">{{data.organizer}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Internship Name</strong></td>
-                                        <td class="text-primary">Software Developer</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Internship Date</strong></td>
-                                        <td class="text-primary">{{data.start_date}} to {{data.end_date}}</td>
-                                        
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-        <a onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)" id="download-link" download="verify.html"  href="#">Download</a>
-        <button class="print" href="" onclick="window.print()">Print</button>
-        </div>
-        <div>
-        <footer id="footer" class="grid-container np-mobile ">
-          <br>
-            <div class="published border-effect">
-                <div class="span-item">
-                    
-                   <center>© 2019-2023 </center>
-                    <center><a href="https://kartexa.com" class="footer-link">KarTexa.com</a></center>
-                    </div>
-                
-                <div class="span4 footerlogo item">
-                </div>
-            </div>
-</footer>
-            </div>
-    
-    </body>
+      </footer>
+    </div>
+  </body>
+</html>

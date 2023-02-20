@@ -14,6 +14,7 @@ class Certificate(models.Model):
     role = models.CharField(max_length=225)
     organization = models.CharField(default="Kartexa", max_length=255)
     organizer = models.CharField(max_length=225)
+    internship_name = models.CharField(max_length=225, default="demo")
     start_date = models.DateField(auto_now=False, auto_now_add=False)
     end_date = models.DateField(auto_now=False, auto_now_add=False)
     generated_date = models.DateTimeField(default=timezone.now)

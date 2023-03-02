@@ -3,7 +3,7 @@
 <html>
   <head>
     <style type="text/css">
-      
+
       .certificate {
         width: 700px;
         height: 550px;
@@ -29,7 +29,7 @@
       }
       .signature {
         width: 150px;
-       
+
         border-top: 1px solid black;
         margin: 50px 100px 0px 0px;
         text-align: center;
@@ -40,7 +40,7 @@
         margin-top: 5px;
         margin-bottom: 0px;
       }
-     
+
     .cert-top{
         max-width:100%;
         max-height:100%;
@@ -54,7 +54,7 @@
         padding-left: 15px;
         padding-right: 15px;
     }
-    
+
     .first{
         float: left;
         width: 180px;
@@ -94,39 +94,39 @@
   </head>
   <body>
     <div class="certificate">
-   
-      <img class ="cert-top" src=" {% static 'img/cert.jpg' %} " id="header_content">
+
+      <img class ="cert-top" src=" C:/Users/Chidiebere Ibiam/Desktop/codebase/kartexa/certificate-project{% static 'img/cert.jpg' %} " id="header_content">
       <h1>This Certificate is presented to</h1>
       <h2><strong>{{data.name}}</strong></h2>
       <p>For completing the "<strong>{{data.role}}</strong> Internship "</p>
       <p>from {{data.start_date}} to {{data.end_date}}.</p>
       <p>We appreciate his work and contribution</p>
-      
+
       <div class= "float-parent">
             <div class="first">
-                <p>______________</p> 
+                <p>______________</p>
                 <p>Bimbsar </p>
                 <p>Program Manager</p>
-              </div> 
+              </div>
 
-       
-            <div class="second"> 
-                
-                <img src="{{data.qr_image.url}}" width="120" height="120">
+
+            <div class="second">
+
+                <img src="{{data.qr_image.path}}" width="120" height="120">
             </div>
-       
-            <div class="third"> 
+
+            <div class="third">
                 <br>
                 <p>Certificate Number </p>
                 <p>{{data.certificate_number}}</p>
             </div>
             <a href="{{data.verification_link}}" target="_blank" rel="noopener noreferrer">{{data.verification_link}}</a>
-        
+
       </div>
-      
-    
+
+
     </div>
 
-   
+
   </body>
 </html>

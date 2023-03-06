@@ -141,3 +141,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+#SMTP Configuration
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+#For Production
+# EMAIL_HOST = ''
+# EMAIL_PORT = ''
+# EMAIL_USE_TILS=''
+# EMAIL_HOST_USER =''
+# EMAIL_HOST_PASSWORD = ''

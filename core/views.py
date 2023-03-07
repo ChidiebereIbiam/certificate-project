@@ -13,7 +13,7 @@ from django.conf import settings
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.contrib.staticfiles import finders
-
+from django.contrib import messages
 
 def link_callback(uri, rel):
     """
@@ -124,7 +124,11 @@ def verify_certificate(request):
     return render(request, 'core/verify_certificate.html', {})
 
 def verify(request, id):
-    cert_details = get_object_or_404(Certificate, certificate_number=id)
-    context = {'data':cert_details}
+    context = {}
+    try:
+        cert_details = Certificate.objects.get(certificate_number=id)
+        context = {'data':cert_details}
+    except Certificate.DoesNotExist:
+        print("Nothing")
 
     return render (request, 'core/verify.html', context)

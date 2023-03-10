@@ -5,35 +5,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-        {% block title %}{% endblock title %}
-        
-    </title>
+    <title>{% block title %}{% endblock title %}</title>
 
     <!-- Favicons -->
     <link href="{% static 'img/logo.png' %}" rel="icon" />
     <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon" />
 
     <!-- Bootstrap CSS Files -->
-    <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap5.min.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/dataTables.bootstrap5.min.css' %}"
+    />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'bootstrap-icons/bootstrap-icons.css' %}"/>
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap-icons/bootstrap-icons.css' %}"
+    />
 
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
     <!-- JQuery -->
-  <script src = "{% static 'js/jquery-3.5.1.js' %}"></script>
-  <script src = "{% static 'js/jquery.validate.js' %}"></script>
-  <script src = "{% static 'js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.5.1.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.js' %}"></script>
+    <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
 
-  <!-- Sweet Alert-->
-  <link href="{% static 'css/sweetalert2.min.css' %}" rel="stylesheet">
+    <!-- Sweet Alert-->
+    <link href="{% static 'css/sweetalert2.min.css' %}" rel="stylesheet" />
   </head>
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
-      <div class="d-flex align-items-center justify-content-between">
+      <div
+        style="width: 200px"
+        class="d-flex align-items-center justify-content-between"
+      >
         <a href="{% url 'dashboard' %}" class="logo d-flex align-items-center">
           <img src="{% static 'img/logo.png' %}" alt="" />
           <span class="d-none d-lg-block">Kartexa</span>
@@ -49,20 +55,20 @@
               href="#"
               data-bs-toggle="dropdown"
             >
-            {% if user.profile.profile_pic %}
-             <img
+              {% if user.profile.profile_pic %}
+              <img
                 src="{{user.profile.profile_pic.url}}"
                 alt="Profile"
                 class="rounded-circle"
               />
               {% else %}
-             <img
+              <img
                 src="{% static 'img/logo.png' %}"
                 alt="Profile"
                 class="rounded-circle"
               />
-            {% endif %}
-             
+              {% endif %}
+
               <span class="d-none d-md-block dropdown-toggle ps-2"
                 >{{user.username}}</span
               >
@@ -71,7 +77,6 @@
             <ul
               class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile"
             >
-              
               <li>
                 <hr class="dropdown-divider" />
               </li>
@@ -87,7 +92,10 @@
               </li>
 
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}">
+                <a
+                  class="dropdown-item d-flex align-items-center"
+                  href="{% url 'logout' %}"
+                >
                   <i class="bi bi-box-arrow-right"></i>
                   <span>Sign Out</span>
                 </a>
@@ -126,19 +134,20 @@
           >
             <li>
               <a href="{% url 'generate_certificate' %}">
-                <i class="bi bi-circle"></i><span>Generate Certificate</span>
+                <i class="bi bi-gear" style="font-size: 12px"></i>
+                <span>Generate Certificate</span>
               </a>
             </li>
             <li>
               <a href="{% url 'manage_certificate' %}">
-                <i class="bi bi-calendar-event"></i
-                ><span>Manage Certificates</span>
+                <i class="bi bi-calendar-event" style="font-size: 12px"></i>
+                <span>Manage Certificates</span>
               </a>
             </li>
             <li>
               <a href="{% url 'verify_certificate' %}">
-                <i class="bi bi-box-arrow-in-right"></i
-                ><span>Verify Certificate</span>
+                <i class="bi bi-box-arrow-in-right" style="font-size: 12px"></i>
+                <span>Verify Certificate</span>
               </a>
             </li>
           </ul>
@@ -146,8 +155,11 @@
         <!-- End Certificate Nav -->
         {% if user.profile %}
         <li class="nav-item">
-          <a class="nav-link collapsed" href="{% url 'profile_page' user.profile.id %}">
-            <i class="bi bi-person"></i>
+          <a
+            class="nav-link collapsed"
+            href="{% url 'profile_page' user.profile.id %}"
+          >
+            <i class="bi bi-person-fill"></i>
             <span>Profile</span>
           </a>
         </li>
@@ -155,18 +167,12 @@
       </ul>
     </aside>
     <!-- End Sidebar-->
-    {% block content %}
-    
-    {% endblock content %}
-
-    
+    {% block content %} {% endblock content %}
 
     <!-- Scripts -->
-    {% block scriptArea %}
-    {% endblock scriptArea %}
+    {% block scriptArea %} {% endblock scriptArea %}
     <script src="{% static 'js/script.js' %} "></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
     <script src="{% static 'js/sweetalert2.min.js' %} "></script>
-  
   </body>
 </html>
